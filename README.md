@@ -1,0 +1,4 @@
+# fluttermidisequencer
+
+Simple midi sequencer
+
