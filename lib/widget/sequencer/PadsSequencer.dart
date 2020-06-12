@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttermidisequencer/domain/sequence/SequencerBloc.dart';
-import 'package:fluttermidisequencer/sequencer/Note.dart';
+import 'package:fluttermidisequencer/domain/sequencer/Note.dart';
 import 'package:fluttermidisequencer/widget/common/TextInputDialog.dart';
 import 'package:fluttermidisequencer/widget/keyboard/PianoKeyboard.dart';
 
@@ -53,6 +53,8 @@ class PadsSequencer extends StatelessWidget {
             }
           }));
 
+  //region Pad Shapes
+
   Widget _buildActiveStepShape(BuildContext context, int index) => FlatButton(
         onLongPress: () => {_onPadLongPressed(context, index)},
         onPressed: () => {_onPadClicked(context, index)},
@@ -89,6 +91,8 @@ class PadsSequencer extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             side: BorderSide(color: Colors.amber, width: 6)),
       );
+
+  //endregion
 
   void _onPadLongPressed(BuildContext context, int padIndex) async {
     final note = await _getNoteFromKeyboard(context);

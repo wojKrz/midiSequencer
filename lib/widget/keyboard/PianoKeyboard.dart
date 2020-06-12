@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:fluttermidisequencer/sequencer/Note.dart';
+import 'package:fluttermidisequencer/domain/sequencer/Note.dart';
 
 class PianoKeyboard extends StatelessWidget {
   Function(int) _onNote(BuildContext context) => (int index) {

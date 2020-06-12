@@ -1,4 +1,4 @@
 # fluttermidisequencer
 
-Simple midi sequencer
+Simple midi domain.sequencer
 

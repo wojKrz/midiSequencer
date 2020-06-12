@@ -1,5 +1,5 @@
 name: fluttermidisequencer
-description: Simple midi sequencer
+description: Simple midi domain.sequencer
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -27,6 +27,12 @@ dependencies:
   flutter_midi_command: 0.1.5
   flutter_bloc: 4.0.0
   equatable: 1.1.1
+  moor: 3.1.0
+  moor_ffi: 0.6.0
+  path_provider: 1.6.10
+  path: 1.6.4
+  rxdart: 0.22.3
+  json_annotation: 3.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -35,6 +41,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  moor_generator: 3.1.0
+  build_runner: 1.10.0
+  json_serializable: 3.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

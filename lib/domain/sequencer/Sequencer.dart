@@ -1,35 +1,17 @@
 import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_midi_command/flutter_midi_command_messages.dart';
-import 'package:fluttermidisequencer/sequencer/Note.dart';
+import 'Note.dart';
+import 'Sequence.dart';
+import 'SequenceStep.dart';
 
-class SequenceStep {
-  Note note;
-
-  /// How long does the gate is on during this step.
-  double gateLength;
-  int velocity;
-
-  bool isOn;
-
-  SequenceStep(this.note, this.gateLength, this.velocity, this.isOn);
-}
-
-class Sequence {
-  Sequence(int stepCount) {
-    steps = List.generate(stepCount, (_) => SequenceStep(null, .5, 127, true));
-  }
-
-  List<SequenceStep> steps;
-  int currentStep = 0;
-}
 
 abstract class Sequencer {
 
   int bpm;
 
   void stepForward();
+
+  Sequence getSequence();
 
   SequenceStep getCurrentStep();
 
@@ -49,9 +31,11 @@ class SimpleStepSequencer implements Sequencer {
 
   int bpm = 120;
 
-  SimpleStepSequencer(int stepCount) {
-    _sequence = Sequence(stepCount);
-  }
+  SimpleStepSequencer(this._sequence);
+
+
+  @override
+  Sequence getSequence() => _sequence;
 
   @override
   void stepForward() {

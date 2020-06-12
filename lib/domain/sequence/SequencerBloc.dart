@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttermidisequencer/sequencer/Note.dart';
-import 'package:fluttermidisequencer/sequencer/Sequencer.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fluttermidisequencer/domain/sequencer/Note.dart';
+import 'package:fluttermidisequencer/domain/sequencer/Sequence.dart';
+import 'package:fluttermidisequencer/domain/sequencer/SequenceStep.dart';
+import 'package:fluttermidisequencer/domain/sequencer/Sequencer.dart';
 
 //region Event
 
@@ -82,9 +84,13 @@ class SequencerState extends Equatable {
 //endregion
 
 class SequencerPlayerBloc extends Bloc<SequencerEvent, SequencerState> {
-  Sequencer _sequencer = SimpleStepSequencer(8);
+  Sequencer _sequencer;
 
   Timer _currentTimer;
+
+  SequencerPlayerBloc(Sequence sequence) {
+    this._sequencer = SimpleStepSequencer(sequence);
+  }
 
   @override
   SequencerState get initialState {
